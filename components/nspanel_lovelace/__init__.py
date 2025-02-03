@@ -615,6 +615,17 @@ async def to_code(config):
         esp32.add_idf_sdkconfig_option("CONFIG_SPIRAM_MODE_QUAD", True)
         esp32.add_idf_sdkconfig_option("CONFIG_ESPTOOLPY_FLASHMODE_QIO", True)
         esp32.add_idf_sdkconfig_option("CONFIG_ESPTOOLPY_FLASHFREQ_80M", True)
+        # Bluetooth proxy
+        esp32.add_idf_sdkconfig_option("CONFIG_BT_ALLOCATION_FROM_SPIRAM_FIRST", True)
+        esp32.add_idf_sdkconfig_option("CONFIG_BT_BLE_DYNAMIC_ENV_MEMORY", True)
+        esp32.add_idf_sdkconfig_option("CONFIG_ESP32_REV_MIN_3", True)
+        esp32.add_idf_sdkconfig_option("CONFIG_MBEDTLS_DYNAMIC_BUFFER", True)
+        esp32.add_idf_sdkconfig_option("CONFIG_MBEDTLS_DYNAMIC_FREE_CA_CERT", True)
+        esp32.add_idf_sdkconfig_option("CONFIG_MBEDTLS_DYNAMIC_FREE_CONFIG_DATA", True)
+        esp32.add_idf_sdkconfig_option("CONFIG_MBEDTLS_EXTERNAL_MEM_ALLOC", True)
+        esp32.add_idf_sdkconfig_option("CONFIG_SPIRAM_ALLOW_BSS_SEG_EXTERNAL_MEMORY", True)
+        esp32.add_idf_sdkconfig_option("CONFIG_SPIRAM_RODATA", True)
+        esp32.add_idf_sdkconfig_option("CONFIG_SPIRAM_TRY_ALLOCATE_WIFI_LWIP", True)
 
     nspanel = cg.new_Pvariable(config[CONF_ID])
     await cg.register_component(nspanel, config)
